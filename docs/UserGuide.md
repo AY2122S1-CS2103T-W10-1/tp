@@ -97,7 +97,7 @@ Format: `list`
 
 Edits an existing person in the address book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​ [task/TASK]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -105,10 +105,15 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `t/` without
     specifying any tags after it.
+* When editing tasks, the existing tasks of the person will be removed i.e adding of tasks is not cumulative.
+* You can remove all the person’s tasks by typing `task/` without
+  specifying any tags after it.
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+* `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 3 e/jackdaniel@example.com task/Project Meeting task/Interview` Edits the email of the 3rd person to be `jackdaniel@example.com` 
+and changes the tasks of the person to be `Project Meeting` and `Interview`, deleting all other tasks as well.
 
 ### Locating persons by name: `find`
 
@@ -154,6 +159,30 @@ Exits the program.
 
 Format: `exit`
 
+### Viewing list of tasks of a person: `viewtask`
+
+Shows the user a list of tasks that has been attached to a specific person.
+
+Format: `viewtask INDEX`
+
+* Displays the list of tasks attached to the person at the specified`INDEX`. 
+* The index refers to the index number shown in the displayed person list. 
+* The index **must be a positive integer** 1, 2, 3, ...
+
+Examples:  
+* `list` followed by delete 2 deletes the 2nd person in the address book.
+* `find` Betsy followed by `delete 1` deletes the 1st person in the results of the `find`
+command.
+  
+### Sorting persons by name: `sort`
+
+Sort persons by the alphabetical order of their name.
+
+Format: `sort [-r]`
+
+* The default sort with no options provided displays a list of persons sorted in ascending ASCII alphabetical order of their name.
+* If the optional -r flag is provided, a list of persons sorted in reverse order is displayed.
+  
 ### Saving the data
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
@@ -189,4 +218,5 @@ Action | Format, Examples
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
+**Sort** | `sort [-r]`
 **Help** | `help`

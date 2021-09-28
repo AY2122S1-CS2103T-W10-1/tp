@@ -48,7 +48,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Integration, Scheduling and Tracking
 * Responsibilities: In charge of versioning of the code, maintaining the code repository, integrating various parts of
   the software to create a whole. In charge of defining, assigning, and tracking project tasks.
-
+* 
 ### Lim Kai Fang
 
 <img src="images/kflim.png" width="200px">
