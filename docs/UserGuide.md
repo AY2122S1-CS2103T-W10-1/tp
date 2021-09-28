@@ -112,7 +112,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​ [task
 Examples:
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 * `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-* `edit 3 e/jackdaniel@example.com task/Project Meeting task/Interview` Edits the email of the 3rd person to be `jackdaniel@example.com` 
+* `edit 3 e/jackdaniel@example.com task/Project Meeting task/Interview` Edits the email of the 3rd person to be `jackdaniel@example.com`.
 and changes the tasks of the person to be `Project Meeting` and `Interview`, deleting all other tasks as well.
 
 ### Locating persons by name: `find`
@@ -147,6 +147,29 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+### Add task:
+
+Add a task to the current list of tasks attached to a person.
+
+Format: `addtask INDEX task/TASKNAME`
+
+* Adds a task to the person at the specified INDEX. The index refers to the index number shown in the displayed person list. The index must be a positive integer 1, 2, 3, …​
+* The name of the task is specified by the TASKNAME.
+
+Examples:
+* `addtask 1 task/call for meeting` Adds the task "call for meeting" to the list of task of the person in 1st person.
+### Delete task:
+
+Deletes a task from the specified person.
+
+Format: `deltask INDEX ti/TASK_INDEX`
+
+* Deletes a task attached to the person at the specified INDEX. The index refers to the index number shown in the displayed person list. The index must be a positive integer 1, 2, 3, …​
+* The task deleted is specified by the TASK_INDEX. The task_index refers to the index number displayed in the tasklist of said person. The index must be a positive integer 1, 2, 3, …​
+
+Examples:
+* `deltask 2 ti/2` Deletes the 2nd task attached to the 2nd person.
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the address book.
@@ -165,15 +188,15 @@ Shows the user a list of tasks that has been attached to a specific person.
 
 Format: `viewtask INDEX`
 
-* Displays the list of tasks attached to the person at the specified`INDEX`. 
-* The index refers to the index number shown in the displayed person list. 
+* Displays the list of tasks attached to the person at the specified`INDEX`.
+* The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, ...
 
 Examples:  
 * `list` followed by delete 2 deletes the 2nd person in the address book.
 * `find` Betsy followed by `delete 1` deletes the 1st person in the results of the `find`
 command.
-  
+
 ### Sorting persons by name: `sort`
 
 Sort persons by the alphabetical order of their name.
@@ -182,7 +205,7 @@ Format: `sort [-r]`
 
 * The default sort with no options provided displays a list of persons sorted in ascending ASCII alphabetical order of their name.
 * If the optional -r flag is provided, a list of persons sorted in reverse order is displayed.
-  
+
 ### Saving the data
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
@@ -220,3 +243,5 @@ Action | Format, Examples
 **List** | `list`
 **Sort** | `sort [-r]`
 **Help** | `help`
+**Add Task** | `addtask INDEX task/TASKNAME` <br> e.g., `addtask 2 task/celebrate $1 million revenue`
+**Delete Task** | `deltask INDEX ti/TASK_INDEX` <br> e.g., `deltask 2 ti/2`
